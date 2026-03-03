@@ -86,6 +86,6 @@ class Grid:
                 if hasattr(cell, "symbol"):
                     row.append(cell.symbol)
                 else:
-                    row.append(str(cell))
+                 §   row.append(str(cell))
             lines.append("".join(row))
         return "\n".join(lines)
