@@ -1,20 +1,14 @@
 class Player:
-    marker = "@"
+    """Håller bara spelarens position och symbol (ren ansvarsfördelning)."""
 
-    def __init__(self, x, y):
-        self.pos_x = x
-        self.pos_y = y
+    def __init__(self, x: int, y: int, symbol: str = "@"):
+        self.x = x
+        self.y = y
+        self.symbol = symbol
 
-    # Flyttar spelaren. "dx" och "dy" är skillnaden
-    def move(self, dx, dy):
-        """Flyttar spelaren.\n
-        dx = horisontell förflyttning, från vänster till höger\n
-        dy = vertikal förflyttning, uppifrån och ned"""
-        self.pos_x += dx
-        self.pos_y += dy
+    def pos(self) -> tuple[int, int]:
+        return self.x, self.y
 
-    def can_move(self, x, y, grid):
-        return True
-        #TODO: returnera True om det inte står något i vägen
-
-
+    def move_to(self, x: int, y: int) -> None:
+        self.x = x
+        self.y = y
