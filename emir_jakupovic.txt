@@ -1,0 +1,47 @@
+Programmering med Python, TAP HT25 D Examination
+
+GitHub-repository: https://github.com/EmirJakupovic/EmirJakupovicPythonTenta.git
+
+VERSION 1 GRUNDKRAV (UPPFYLLDA)
+
+-   Spelaren startar nära mitten av rummet (game.py –
+    find_start_near_center)
+-   Förflyttning i fyra riktningar (WASD) (constants.py – MOVE, game.py
+    – try_move)
+-   Man kan inte gå genom väggar (game.py – try_move + handle_wall_hit,
+    grid.py – get)
+-   Alla frukter är värda 20 poäng (Fruktsallad) (constants.py –
+    FRUIT_POINTS, pickups.py – Fruit)
+-   Inventory sparas i en lista/dictionary (game.py – inventory)
+-   Kommando “i” visar inventory (game.py – show_inventory)
+-   (-1) poäng per steg (The floor is lava) (constants.py –
+    LAVA_COST_PER_STEP, game.py – try_move)
+-   Sammanhängande väggar skapade med for-loopar i grid.py (grid.py –
+    make_walls)
+
+VERSION 2 IMPLEMENTERADE KRAV (FÖR VG)
+
+-   Fällor (X) - spelaren förlorar 10 poäng och fällan ligger kvar
+    (pickups.py – Trap, game.py – handle_landing)
+-   Spade (S) - tar bort en vägg vid användning och förbrukas
+    (pickups.py – Shovel, game.py – handle_wall_hit)
+-   Nycklar (K) och kistor (C) - öppnas med nyckel och ger +100 poäng
+    (pickups.py – Key/Chest, game.py – handle_landing)
+-   Bördig jord - var 25:e drag skapas en ny frukt (pickups.py –
+    spawn_one_fruit, game.py – fertile_soil_growth)
+-   Exit (E) - fungerar först när alla ursprungliga objekt är hanterade
+    (pickups.py – Exit, game.py – handle_landing)
+-   Jump-funktion - skriv “j” före WASD för att hoppa två steg (game.py
+    – try_move med steps=2)
+
+-----------------------------------------------------------------
+Kommentar till Björn:
+-----------------------------------------------------------------
+Projektet är uppdelat i separata filer för Grid (grid.py), Player
+(player.py) och Pickups (pickups.py) för tydlig struktur och
+ansvarsfördelning. Huvudlogiken finns i game.py och konstanter i
+constants.py.
+
+Spelet körs via: python -m src.game
+
+All kod finns i repositoryt och projektet startar utan fel.
