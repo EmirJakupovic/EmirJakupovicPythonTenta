@@ -5,7 +5,7 @@ from src import constants
 
 
 def find_start_near_center(grid: Grid) -> tuple[int, int]:
-    """Start nära mitten. Om mitten inte är tom, leta närmaste tomma ruta."""
+    """Start nära mitten. Om mitten inte är tom, leta efter närmaste tomma ruta."""
     cx, cy = grid.width // 2, grid.height // 2
     if grid.is_empty(cx, cy):
         return cx, cy
