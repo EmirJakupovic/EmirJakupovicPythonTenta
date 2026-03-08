@@ -6,36 +6,36 @@ https://github.com/EmirJakupovic/EmirJakupovicPythonTenta.git
 
 VERSION 1 GRUNDKRAV (UPPFYLLDA)
 
-- Spelaren startar nära mitten av rummet (game.py – find_start_near_center)
-- Spelaren kan röra sig i fyra riktningar med WASD (constants.py – MOVE, game.py – try_move)
-- Man kan inte gå genom väggar (game.py – try_move + handle_wall_hit, grid.py – get)
-- Alla frukter är värda 20 poäng (Fruktsallad) (constants.py – FRUIT_POINTS, pickups.py – Fruit)
-- Inventory sparas i en struktur i spelet (game.py – inventory)
-- Kommandot "i" visar inventory (game.py – show_inventory)
-- Spelaren förlorar 1 poäng per steg (The floor is lava) (constants.py – LAVA_COST_PER_STEP, game.py – try_move)
-- Väggar skapas med for-loopar så att de blir sammanhängande (grid.py – make_walls)
+* Spelaren startar nära mitten av rummet (game.py - find_start_near_center)
+* Spelaren kan röra sig i fyra riktningar med WASD (constants.py - MOVE, game.py - try_move)
+* Man kan inte gå genom väggar (game.py - try_move + handle_wall_hit, grid.py - get)
+* Alla frukter är värda 20 poäng (constants.py - FRUIT_POINTS, pickups.py - Fruit)
+* Inventory sparas i spelet (game.py - inventory)
+* Kommandot "i" visar inventory (game.py - show_inventory)
+* Spelaren förlorar 1 poäng per steg (constants.py - LAVA_COST_PER_STEP, game.py - try_move)
+* Väggar skapas med for-loopar så att de blir sammanhängande (grid.py - make_walls)
 
 
 VERSION 2 IMPLEMENTERADE KRAV (FÖR VG)
 
-- Fällor (X) gör att spelaren förlorar 10 poäng när man går på dem
-  (pickups.py – Trap, game.py – handle_landing)
+* Fällor (X) gör att spelaren förlorar 10 poäng när man går på dem
+  (pickups.py - Trap, game.py - handle_landing)
 
-- Spade (S) kan användas för att ta bort en vägg och förbrukas efter användning
-  (pickups.py – Shovel, game.py – handle_wall_hit)
+* Spade (S) kan användas för att ta bort en vägg och förbrukas efter användning
+  (pickups.py - Shovel, game.py - handle_wall_hit)
 
-- Nycklar (K) och kistor (C). Kistan kan öppnas om man har en nyckel
+* Nycklar (K) och kistor (C). Kistan kan öppnas om man har en nyckel
   och ger +100 poäng
-  (pickups.py – Key/Chest, game.py – handle_landing)
+  (pickups.py - Key/Chest, game.py - handle_landing)
 
-- Bördig jord: var 25:e drag växer en ny frukt på kartan
-  (pickups.py – spawn_one_fruit, game.py – fertile_soil_growth)
+* Bördig jord: var 25:e drag växer en ny frukt på kartan
+  (pickups.py - spawn_one_fruit, game.py - fertile_soil_growth)
 
-- Exit (E) fungerar först när alla objekt är uppplockade eller öppnade
-  (pickups.py – Exit, game.py – handle_landing)
+* Exit (E) fungerar först när alla objekt är uppplockade eller öppnade
+  (pickups.py - Exit, game.py - handle_landing)
 
-- Jump-funktion: man kan skriva j + WASD för att hoppa två steg
-  (game.py – try_move med steps=2)
+* Jump-funktion: man kan skriva j + WASD för att hoppa två steg
+  (game.py - try_move med steps=2)
 
 Totalt är fler än fyra funktioner från Version 2 implementerade,
 vilket motsvarar VG-nivå enligt instruktionen.
@@ -43,38 +43,38 @@ vilket motsvarar VG-nivå enligt instruktionen.
 
 VERSION 3 EXTRA FUNKTIONER
 
-- Fiender (!) finns på kartan och kan röra sig mot spelaren
-  (pickups.py – Enemy, game.py – move_enemies)
+* Fiender (!) finns på kartan och kan röra sig mot spelaren
+  (pickups.py - Enemy, game.py - move_enemies)
 
-- Om en fiende når spelaren förlorar man poäng
-  (constants.py – ENEMY_CATCH_PENALTY, game.py – move_enemies)
+* Om en fiende når spelaren förlorar man poäng
+  (constants.py - ENEMY_CATCH_PENALTY, game.py - move_enemies)
 
-- Bomber kan placeras med kommandot B. De exploderar efter några drag
+* Bomber kan placeras med kommandot B. De exploderar efter några drag
   och förstör rutor runt omkring
-  (pickups.py – Bomb, game.py – place_bomb, tick_bombs, explode_bomb)
+  (pickups.py - Bomb, game.py - place_bomb, tick_bombs, explode_bomb)
 
-- Fällor kan desarmeras med kommandot T
-  (game.py – disarm_trap)
+* Fällor kan desarmeras med kommandot T
+  (game.py - disarm_trap)
 
-- Efter att spelaren plockar upp ett objekt aktiveras en kort grace-period
+* Efter att spelaren plockar upp ett objekt startar en kort grace-period
   där lava-poäng inte dras
-  (constants.py – GRACE_STEPS_AFTER_PICKUP, game.py – start_grace_period)
+  (constants.py - GRACE_STEPS_AFTER_PICKUP, game.py - start_grace_period)
 
 
 Tester
 
 Projektet innehåller tester i mappen tests:
 
-- test_grid.py
-- test_player.py
-- test_game.py
+* test_grid.py
+* test_player.py
+* test_game.py
 
 Dessa testar grundläggande funktioner i spelet, till exempel att
-väggar skapas korrekt, att spelaren fungerar som tänkt och att delar
-av spel-logiken beter sig rätt.
+väggar skapas korrekt, att spelaren fungerar och att delar av
+spel-logiken beter sig rätt.
 
 
-Kommentar till Björn:
+Kommentar
 
 Projektet är uppdelat i flera filer för att göra koden mer strukturerad.
 
@@ -83,15 +83,14 @@ player.py innehåller spelarens position och symbol.
 pickups.py innehåller objekt som frukt, fällor, nycklar, kistor,
 fiender och bomber.
 
-Huvudlogiken för spelet ligger i game.py och alla konstanter
+Huvudlogiken för spelet ligger i game.py och konstanter
 samlas i constants.py.
 
 Spelets data (t.ex. poäng, inventory, fiender och bomber)
 lagras i en dictionary som heter state i game.py.
 
-Spelet startas med kommandot python -m src.game
-(Eller i game.py och överst "run" när man valt src.game)"":
+Spelet startas med kommandot:
 
-
+python -m src.game
 
 All kod finns i repositoryt och projektet startar utan fel.
